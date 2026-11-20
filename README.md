@@ -303,17 +303,6 @@ GET /security/info
 GET /security/headers
 ```
 
-#### Scan Endpoint (Requires API Key)
-```http
-POST /security/scan
-X-API-Key: secure-api-key-12345
-Content-Type: application/json
-
-{
-  "url": "http://localhost:5000/api/data"
-}
-```
-
 ## Security Features Explained
 
 ### 1. Rate Limiting

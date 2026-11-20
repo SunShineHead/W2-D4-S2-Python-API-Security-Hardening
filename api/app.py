@@ -205,24 +205,6 @@ def create_user():
     }), 201
 
 
-@app.route('/security/scan', methods=['POST'])
-@require_api_key
-def scan_endpoint():
-    """Scan an endpoint for vulnerabilities"""
-    data = request.get_json()
-    
-    if not data or 'url' not in data:
-        return jsonify({'error': 'URL required'}), 400
-    
-    from scanner.vulnerability_scanner import VulnerabilityScanner
-    
-    scanner = VulnerabilityScanner()
-    vulnerabilities = scanner.scan_endpoint(data['url'])
-    report = scanner.generate_report(vulnerabilities)
-    
-    return jsonify(report)
-
-
 @app.route('/security/headers', methods=['GET'])
 def get_security_headers():
     """Get configured security headers"""

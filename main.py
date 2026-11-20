@@ -150,12 +150,12 @@ def demo_input_validation():
     print("\n[KEY] Password Validation:")
     passwords = ["weak", "StrongPass123", "nodigits"]
     
-    for pwd in passwords:
+    for index, pwd in enumerate(passwords, start=1):
         result = validator.validate_password(pwd)
         if result['valid']:
-            print(f"   '{pwd}': [PASS] Valid")
+            print(f"   Sample {index}: [PASS] Valid")
         else:
-            print(f"   '{pwd}': [FAIL] Invalid - {result['errors'][0]}")
+            print(f"   Sample {index}: [FAIL] Invalid - {result['errors'][0]}")
     
     # Input sanitization
     print("\n[EMOJI] Input Sanitization:")
